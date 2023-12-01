@@ -1,13 +1,22 @@
 import 'package:examen_pmdm/customViews/BotonCustom.dart';
+import 'package:examen_pmdm/customViews/CampoTextoCustom.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
 
+  TextEditingController tc = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.blue,
-      body: BotonCustom(sText: 'hola', cBackgroundColor: const Color.fromRGBO(152, 45, 157, 1.0), cSideColor: const Color.fromRGBO(45, 12, 157, 1.0), event: null, cTextColor: const Color.fromRGBO(255, 255, 255, 1.0), dTamanoText: 20),
+      body: Column(
+        children: [
+          CampoTextoCustom(sLabel: 'yeyeyeey', tecController: tc, cBoxColor: Colors.amberAccent, iIcon: const Icon(Icons.abc)),
+          BotonCustom(sText: 'hola', cBackgroundColor: Colors.deepPurple, cSideColor: Colors.white, event: null, cTextColor: Colors.white, dTamanoText: 20),
+        ]
+      )
     );
   }
 
