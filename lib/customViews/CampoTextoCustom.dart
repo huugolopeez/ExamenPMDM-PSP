@@ -11,7 +11,7 @@ class CampoTextoCustom extends StatelessWidget {
   CampoTextoCustom({Key? key,
     required this.sLabel,
     required this.tecController,
-    required this.cBoxColor,
+    this.cBoxColor = Colors.white,
     required this.iIcon,
     this.blIsPassword = false,
   }) : super(key : key);

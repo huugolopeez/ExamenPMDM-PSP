@@ -9,6 +9,8 @@ class Examen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
+      title: 'Examen',
+      debugShowCheckedModeBanner: false,
       initialRoute: '/splashview',
       routes: {
         '/splashview': (context) => SplashView(),
