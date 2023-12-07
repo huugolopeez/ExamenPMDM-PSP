@@ -25,7 +25,7 @@ class BotonCustom extends StatelessWidget {
     return ConstrainedBox(
         constraints: const BoxConstraints.tightFor(width: 150, height: 50),
         child: ElevatedButton(
-            onPressed: () => event!,
+            onPressed: () => event!(),
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(cBackgroundColor),
                 side: MaterialStateProperty.all(BorderSide(color: cSideColor)),
