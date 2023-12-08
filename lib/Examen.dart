@@ -1,3 +1,4 @@
+import 'package:examen_pmdm/main/AjustesView.dart';
 import 'package:examen_pmdm/main/HomeView.dart';
 import 'package:examen_pmdm/onBoarding/LoginView.dart';
 import 'package:examen_pmdm/onBoarding/RegisterView.dart';
@@ -17,7 +18,8 @@ class Examen extends StatelessWidget {
         '/splashview': (context) => SplashView(),
         '/loginview': (context) => LoginView(),
         '/registerview': (context) => RegisterView(),
-        '/homeview': (context) => HomeView()
+        '/homeview': (context) => HomeView(),
+        '/ajustesview': (context) => AjustesView()
       },
     );
   }

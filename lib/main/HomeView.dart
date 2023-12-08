@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:examen_pmdm/customViews/TextoCustom.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../customViews/DrawerClass.dart';
 import '../customViews/PostCellView.dart';
 import '../customViews/PostGridView.dart';
 import '../firestoreObjects/FbPost.dart';
+import '../onBoarding/LoginView.dart';
 import '../singletone/DataHolder.dart';
 
 class HomeView extends StatefulWidget {
@@ -15,7 +18,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
 
   final List<FbPost> posts = [];
-  bool bIsList = false;
+  bool bIsList = true;
 
   @override
   void initState() {
@@ -71,6 +74,30 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
+  void onItemTapDrawer(int index) {
+    setState(() {
+      if(index == 0) {
+        FirebaseAuth.instance.signOut();
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (BuildContext context) => LoginView()),
+            ModalRoute.withName('/loginview')
+        );
+      } else if(index == 1) {
+        Navigator.of(context).pushNamed('/ajustesview');
+      }
+    });
+  }
+
+  void onBottomMenuPressed(int index) {
+    setState(() {
+      if(index == 0) {
+        bIsList = true;
+      } else if(index == 1) {
+        bIsList = false;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -84,7 +111,15 @@ class _HomeViewState extends State<HomeView> {
         ),
         body: Center(
             child: gridOrList(bIsList)
-        )
+        ),
+        drawer: DrawerClass(onItemTap: onItemTapDrawer),
+        bottomNavigationBar: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TextButton(onPressed: () => onBottomMenuPressed(0), child: Icon(Icons.list, color: DataHolder().colorPrincipal)),
+              TextButton(onPressed: () => onBottomMenuPressed(1), child: Icon(Icons.grid_view, color: DataHolder().colorPrincipal))
+            ]
+        ),
     );
   }
 }
