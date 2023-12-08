@@ -13,4 +13,13 @@ class FirebaseAdmin {
 
     return await reference.get();
   }
+
+  void insertPost(FbPost post) {
+    CollectionReference<FbPost> postRef = DataHolder().db.collection('Posts').withConverter(
+        fromFirestore: FbPost.fromFirestore,
+        toFirestore: (FbPost post, _) => post.toFirestore()
+    );
+
+    postRef.add(post);
+  }
 }

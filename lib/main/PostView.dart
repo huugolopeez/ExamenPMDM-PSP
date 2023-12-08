@@ -67,7 +67,12 @@ class _PostViewState extends State<PostView> {
             ]
         )
             :
-        CircularProgressIndicator()
+        CircularProgressIndicator(),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () { Navigator.of(context).popAndPushNamed('/posteditview'); },
+          backgroundColor: DataHolder().colorPrincipal,
+          child: const Icon(Icons.edit)
+      )
     );
   }
 }

@@ -6,6 +6,8 @@ import 'package:examen_pmdm/onBoarding/RegisterView.dart';
 import 'package:examen_pmdm/splash/SplashView.dart';
 import 'package:flutter/material.dart';
 
+import 'main/PostEditView.dart';
+
 class Examen extends StatelessWidget {
 
   @override
@@ -21,7 +23,8 @@ class Examen extends StatelessWidget {
         '/registerview': (context) => RegisterView(),
         '/homeview': (context) => HomeView(),
         '/ajustesview': (context) => AjustesView(),
-        '/postview': (context) => PostView()
+        '/postview': (context) => PostView(),
+        '/posteditview': (context) => PostEditView()
       },
     );
   }

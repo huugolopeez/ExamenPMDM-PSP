@@ -127,7 +127,7 @@ class _HomeViewState extends State<HomeView> {
               TextButton(onPressed: () => onBottomMenuPressed(0), child: Icon(Icons.list, color: DataHolder().colorPrincipal)),
               TextButton(onPressed: () => onBottomMenuPressed(1), child: Icon(Icons.grid_view, color: DataHolder().colorPrincipal))
             ]
-        ),
+        )
     );
   }
 }
