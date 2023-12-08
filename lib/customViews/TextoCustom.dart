@@ -15,14 +15,12 @@ class TextoCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Flexible(
-        child: Text(
+    return Text(
           sText,
           style: TextStyle(
             color: cTextColor,
             fontSize: dSize,
-          ))
-    );
+          ));
   }
 
 }

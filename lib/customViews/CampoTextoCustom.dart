@@ -19,8 +19,7 @@ class CampoTextoCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Flexible(
-        child: Container(
+    return Container(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: cBoxColor),
           child: TextFormField(
               controller: tecController,
@@ -31,7 +30,7 @@ class CampoTextoCustom extends StatelessWidget {
                   border: const OutlineInputBorder(),
                   hintText: sLabel,
               )),
-        ));
+        );
   }
 
 }
