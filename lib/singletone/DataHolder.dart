@@ -1,13 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import '../firestoreObjects/FbPost.dart';
+import '../firestoreObjects/FbUsuario.dart';
+import 'FirebaseAdmin.dart';
 
 class DataHolder {
 
   static final DataHolder _dataHolder = DataHolder._internal();
 
+  FirebaseFirestore db = FirebaseFirestore.instance;
+  FirebaseAdmin fbAdmin = FirebaseAdmin();
+
   late Color colorFondo;
   late Color colorPrincipal;
   late Color colorSecundario;
   late Color colorTerciario;
+
+  late FbPost selectedPost;
+  late FbUsuario selectedUser;
 
   DataHolder._internal() {
     initCache();
