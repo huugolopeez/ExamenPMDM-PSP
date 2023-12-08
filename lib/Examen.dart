@@ -1,5 +1,6 @@
 import 'package:examen_pmdm/main/AjustesView.dart';
 import 'package:examen_pmdm/main/HomeView.dart';
+import 'package:examen_pmdm/main/PostView.dart';
 import 'package:examen_pmdm/onBoarding/LoginView.dart';
 import 'package:examen_pmdm/onBoarding/RegisterView.dart';
 import 'package:examen_pmdm/splash/SplashView.dart';
@@ -19,7 +20,8 @@ class Examen extends StatelessWidget {
         '/loginview': (context) => LoginView(),
         '/registerview': (context) => RegisterView(),
         '/homeview': (context) => HomeView(),
-        '/ajustesview': (context) => AjustesView()
+        '/ajustesview': (context) => AjustesView(),
+        '/postview': (context) => PostView()
       },
     );
   }

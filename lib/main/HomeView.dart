@@ -36,6 +36,12 @@ class _HomeViewState extends State<HomeView> {
     }
   }
 
+  void onItemTapList(int index) {
+    DataHolder().selectedPost = posts[index];
+    DataHolder().saveSelectedPostInCache();
+    Navigator.of(context).pushNamed('/postview');
+  }
+
   Widget? gridOrList(bool bIsList) {
     if(bIsList) {
       return ListView.separated(
@@ -48,6 +54,7 @@ class _HomeViewState extends State<HomeView> {
                 sImage: posts[index].imagen,
                 dFontSize: 30,
                 iPosition: index,
+                onItemTap: onItemTapList
             );
           },
           separatorBuilder: (context, index) {
@@ -68,6 +75,7 @@ class _HomeViewState extends State<HomeView> {
                 sBody: posts[index].cuerpo,
                 dFontSize: 30,
                 iPosition: index,
+                onItemTap: onItemTapList
             );
           }
       );

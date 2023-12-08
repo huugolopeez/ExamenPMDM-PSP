@@ -24,6 +24,7 @@ class PostCellView extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return InkWell(
+        onTap: () { onItemTap!(iPosition); },
         child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0),
