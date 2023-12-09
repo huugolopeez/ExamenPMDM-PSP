@@ -22,36 +22,12 @@ class _PostEditViewState extends State<PostEditView> {
   TextEditingController tecTitle = TextEditingController();
   TextEditingController tecBody = TextEditingController();
 
-  final ImagePicker _picker = ImagePicker();
-  File _imagenPreview = File('');
-  bool isPhoto = false;
-
   void onBottomMenuPressed(int index) async {
     if(index == 0) {
       Navigator.of(context).popAndPushNamed('/homeview');
     } else if(index == 1) {
       Navigator.of(context).popAndPushNamed('/homeview');
     }
-  }
-
-  void onCameraButton() async {
-    XFile? image = await _picker.pickImage(source: ImageSource.camera);
-    if (image != null) {
-      setState(() {
-        _imagenPreview = File(image.path);
-      });
-    }
-    isPhoto = true;
-  }
-
-  void onGalleryButton() async {
-    XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if(image != null) {
-      setState(() {
-        _imagenPreview = File(image.path);
-      });
-    }
-    isPhoto = true;
   }
 
   @override
@@ -71,29 +47,13 @@ class _PostEditViewState extends State<PostEditView> {
                   child: CampoTextoCustom(
                       sLabel: 'Escribe un cuerpo', tecController: tecBody, iIcon: const Icon(Icons.drive_file_rename_outline_sharp))
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 40),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          onPressed: () { onCameraButton(); },
-                          child: Icon(Icons.camera_alt_rounded, color: DataHolder().colorPrincipal)
-                      ),
-                      TextButton(
-                          onPressed: () { onGalleryButton(); },
-                          child: Icon(Icons.image, color: DataHolder().colorPrincipal)
-                      ),
-                    ]),
-              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  TextButton(onPressed: () => onBottomMenuPressed(0), child: TextoCustom(sText: 'Editar', dSize: 24, cTextColor: DataHolder().colorTerciario)),
+                  TextButton(onPressed: () => onBottomMenuPressed(1), child: TextoCustom(sText: 'Cancelar', dSize: 24, cTextColor: DataHolder().colorTerciario))
+                ])
             ]),
-        bottomNavigationBar: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              TextButton(onPressed: () => onBottomMenuPressed(0), child: TextoCustom(sText: 'Editar', dSize: 24, cTextColor: DataHolder().colorTerciario)),
-              TextButton(onPressed: () => onBottomMenuPressed(1), child: TextoCustom(sText: 'Cancelar', dSize: 24, cTextColor: DataHolder().colorTerciario))
-            ]
-        )
     );
   }
 }

@@ -29,7 +29,7 @@ class RegisterView extends StatelessWidget {
             email: tecEmail.text,
             password: tecPass.text
         );
-        Navigator.of(_context).popAndPushNamed('/homeview');
+        Navigator.of(_context).popAndPushNamed('/splashview');
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
           print(' --> La contraseña es muy debil.');

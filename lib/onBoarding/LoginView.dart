@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
           email: tecEmail.text,
           password: tecPass.text
       );
-      Navigator.of(_context).popAndPushNamed('/homeview');
+      Navigator.of(_context).popAndPushNamed('/splashview');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-email') {
         print(' --> Formato del email incorrecto.');
