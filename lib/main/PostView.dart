@@ -56,14 +56,7 @@ class _PostViewState extends State<PostView> {
               Padding(
                 padding: const EdgeInsets.only(left: 40),
                 child: Text(DataHolder().selectedPost.cuerpo, style: const TextStyle(color: Colors.white)),
-              ),
-              if(DataHolder().selectedPost.imagen != '')
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Center(
-                      child: Image.network(DataHolder().selectedPost.imagen, height: 200)
-                  ),
-                )
+              )
             ]
         )
             :

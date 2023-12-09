@@ -51,7 +51,6 @@ class _HomeViewState extends State<HomeView> {
             return PostCellView(
                 sTitle: posts[index].titulo,
                 sBody: posts[index].cuerpo,
-                sImage: posts[index].imagen,
                 dFontSize: 30,
                 iPosition: index,
                 onItemTap: onItemTapList
@@ -127,6 +126,11 @@ class _HomeViewState extends State<HomeView> {
               TextButton(onPressed: () => onBottomMenuPressed(0), child: Icon(Icons.list, color: DataHolder().colorPrincipal)),
               TextButton(onPressed: () => onBottomMenuPressed(1), child: Icon(Icons.grid_view, color: DataHolder().colorPrincipal))
             ]
+        ),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () { Navigator.of(context).popAndPushNamed('/postcreateview'); },
+            backgroundColor: DataHolder().colorPrincipal,
+            child: const Icon(Icons.add)
         )
     );
   }
